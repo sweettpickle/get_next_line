@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/cdoreah/Desktop/cdoreah/gnl/get_next_line.c
+stdio.h
+-
+get_next_line.h
+/Users/cdoreah/Desktop/cdoreah/gnl/get_next_line.h
+
+/Users/cdoreah/Desktop/cdoreah/gnl/get_next_line.h
+unistd.h
+-
+fcntl.h
+-
+libft/libft.h
+/Users/cdoreah/Desktop/cdoreah/gnl/libft/libft.h
+
+/Users/cdoreah/Desktop/cdoreah/gnl/libft/libft.h
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+
