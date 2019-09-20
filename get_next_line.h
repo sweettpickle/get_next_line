@@ -6,7 +6,7 @@
 /*   By: cdoreah <cdoreah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 19:50:02 by cdoreah           #+#    #+#             */
-/*   Updated: 2019/09/17 22:25:08 by cdoreah          ###   ########.fr       */
+/*   Updated: 2019/09/21 00:03:23 by cdoreah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <unistd.h>
 # include <fcntl.h>
-#include "libft/libft.h"
+# include "libft/libft.h"
 
-# define BUFF_SIZE 50
+# define BUFF_SIZE 8
+# define MAX_FD 4096
 
 int		get_next_line(const int fd, char **line);
 
