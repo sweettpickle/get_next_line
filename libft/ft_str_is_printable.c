@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoreah <cdoreah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 19:50:02 by cdoreah           #+#    #+#             */
-/*   Updated: 2019/09/21 11:36:19 by cdoreah          ###   ########.fr       */
+/*   Created: 2019/09/13 16:54:53 by cdoreah           #+#    #+#             */
+/*   Updated: 2019/09/16 15:32:01 by cdoreah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_GET_NEXT_LINE_H
-# define GET_NEXT_GET_NEXT_LINE_H
+static int		print(char *str)
+{
+	while (*str != '\0')
+	{
+		if (*str > 31 && *str < 127)
+		{
+			str++;
+		}
+		else
+			return (0);
+	}
+	return (1);
+}
 
-# include <unistd.h>
-# include <fcntl.h>
-# include "libft/libft.h"
+int				ft_str_is_printable(char *str)
+{
+	int			check;
 
-# define BUFF_SIZE 50
-# define MAX_FD 10240
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (*str == '\0')
+		return (1);
+	check = print(str);
+	if (check == 1)
+		return (1);
+	return (0);
+}

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdoreah <cdoreah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 19:50:02 by cdoreah           #+#    #+#             */
-/*   Updated: 2019/09/21 11:36:19 by cdoreah          ###   ########.fr       */
+/*   Created: 2019/09/13 16:51:51 by cdoreah           #+#    #+#             */
+/*   Updated: 2019/09/16 15:32:01 by cdoreah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_GET_NEXT_LINE_H
-# define GET_NEXT_GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include "libft/libft.h"
+int		*ft_range(int min, int max)
+{
+	int	*mas;
+	int	len;
+	int i;
 
-# define BUFF_SIZE 50
-# define MAX_FD 10240
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	len = max - min;
+	if (min >= max)
+		return (0);
+	mas = (int *)malloc(sizeof(int) * (len));
+	if (mas == NULL)
+		return (0);
+	while (min < max)
+		mas[i++] = min++;
+	return (mas);
+}

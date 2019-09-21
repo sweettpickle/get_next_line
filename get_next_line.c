@@ -6,11 +6,10 @@
 /*   By: cdoreah <cdoreah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 19:56:46 by cdoreah           #+#    #+#             */
-/*   Updated: 2019/09/21 00:13:49 by cdoreah          ###   ########.fr       */
+/*   Updated: 2019/09/21 12:32:23 by cdoreah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "get_next_line.h"
 
 int				read_line(const int fd, char **mas)
@@ -23,7 +22,7 @@ int				read_line(const int fd, char **mas)
 	{
 		buf[ret] = '\0';
 		tmp = ft_strjoin(*mas, buf);
-		free(*mas);
+		ft_strdel(mas);
 		*mas = tmp;
 		return (1);
 	}
@@ -46,7 +45,7 @@ char			*get_line(char **mas, char **line)
 	{
 		*line = ft_strsub(*mas, 0, len);
 		tmp = ft_strdup(*mas + len + 1);
-		free(*mas);
+		ft_strdel(mas);
 		*mas = tmp;
 	}
 	else
@@ -62,7 +61,7 @@ int				get_next_line(const int fd, char **line)
 	static char *mas[MAX_FD];
 	int			ret;
 
-	if (fd < 0)
+	if (fd < 0 || fd > MAX_FD)
 		return (-1);
 	if (!mas[fd])
 		mas[fd] = ft_strnew(0);
